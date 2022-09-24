@@ -1,0 +1,29 @@
+.login {
+  width: 30%;
+}
+.nav-item a {
+  font-size: 20px;
+  color: white;
+}
+.nav-item:hover {
+  letter-spacing: 1px;
+  transition: letter-spacing 0.5s;
+}
+.btn {
+  border-radius: 50px;
+  font-size: 20px;
+}
+.navbar {
+  background-color: #385cff;
+  box-shadow: 0 2px 5px #a2b2ff;
+  margin-bottom: 10px;
+  color: white;
+  font-family: "Poppins", sans-serif;
+}
+.fas {
+  font-size: 25px;
+  color: white;
+}
+.navbar-toggler:focus {
+  outline: none;
+}

@@ -1,0 +1,100 @@
+<div *ngIf="status">
+  <div class="container">
+    <h1>Edit Class Details</h1>
+    <div class="row">
+      <div class="col-md-4">
+        <img src="/assets/class_icon.jpg" class="img-circle" />
+        <p class="img_text">Class Image (By Default)</p>
+        <button
+          class="btn btn-danger btn-block submit_btn mt-3"
+          *ngIf="jtype == 'teacher' && lengthStudent < 1"
+          (click)="deleteStudent(currentID)"
+        >
+          Exit Class
+        </button>
+        <p style="color: red" *ngIf="jtype == 'teacher' && lengthStudent < 1">
+          Remove All Students in the Class to Exit the class.
+        </p>
+        <!-- Deleting all students with a particular class code is done by 
+      >>> storing all class IDs in an array with a class Code 
+      >>> Remove all of the class IDs in a for loop with IDs in the array 
+    -->
+        <button
+          class="btn btn-danger btn-block submit_btn mt-3"
+          *ngIf="jtype == 'student'"
+          (click)="deleteStudent(currentID)"
+        >
+          Leave Class
+        </button>
+      </div>
+      <div class="col-md-8 mt-5">
+        <div class="form-group row">
+          <div class="col-md-5">
+            <h6>Class Code</h6>
+            <input
+              type="text"
+              readonly
+              class="form-control form_input"
+              [(ngModel)]="this.jcCode"
+            />
+          </div>
+          <div class="col-md-7">
+            <h6>Your Name</h6>
+            <input
+              type="text"
+              class="form-control form_input"
+              [(ngModel)]="jname"
+              placeholder="Name"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-6">
+            <h6 *ngIf="jtype == 'student'">Teacher Name</h6>
+            <h6 *ngIf="jtype == 'teacher'">Class Name</h6>
+            <input
+              type="text"
+              [(ngModel)]="jcName"
+              class="form-control form_input"
+            />
+          </div>
+          <div class="col-md-6">
+            <h6>Subject</h6>
+            <input
+              type="text"
+              class="form-control form_input"
+              [(ngModel)]="jsubject"
+            />
+          </div>
+
+          <div class="col-md-6"></div>
+          <div class="col-md-6">
+            <button
+              class="btn btn-primary btn-block submit_btn mt-3"
+              (click)="updateClassDetatils()"
+            >
+              Update
+            </button>
+            <div
+              class="alert alert-success mt-2 mb-5"
+              *ngIf="deleteSt.length > 0"
+            >
+              {{ deleteSt }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="alert alert-success btn-block mt-2 fade show pull-left"
+      role="alert"
+      *ngIf="message"
+    >
+      {{ message }}
+    </div>
+  </div>
+</div>
+<div *ngIf="!status" class="container mt-5 mb-5">
+  You are not the member of this class
+</div>

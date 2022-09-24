@@ -1,0 +1,139 @@
+<div class="container mt-5 mb-5" *ngIf="!status">
+  You are not the user of this class
+</div>
+<div class="container mt-5 mt-5" *ngIf="teacherS < 1">
+  Teacher Removed this Assignment
+</div>
+<div *ngIf="status && teacherS > 0">
+  <div class="container">
+    <div
+      *ngFor="let assign of assignments"
+      [class]="assign"
+      class="Assign mt-3"
+    >
+      <h4>{{ assign.data().name }}</h4>
+      <hr />
+      <p>{{ assign.data().desc }}</p>
+      <hr />
+      <div class="row">
+        <div class="col-sm-6">
+          <h6><b>Due Date: </b>{{ assign.data().dueDate }}</h6>
+        </div>
+        <div class="col-sm-6">
+          <p>
+            <b>Created On: </b>
+            {{
+              assign.data().createDate.toDate() | date: "MMM dd, yyyy (h:mm a)"
+            }}
+          </p>
+        </div>
+      </div>
+
+      <div class="row" *ngIf="currentUser == 'teacher'">
+        <div class="col-sm-6">
+          <b>Total Students ( {{ totalStudents }} )</b>
+        </div>
+        <div class="col-sm-6">
+          <button
+            class="btn btn-block btn-danger"
+            (click)="removeAssign(assign.id)"
+          >
+            Remove Assignment
+          </button>
+          <div class="alert alert-success" *ngIf="deleteAssignment.length > 0">
+            {{ deleteAssignment }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-5" *ngIf="currentUser == 'student'">
+      <div class="col-md-12" *ngIf="assignmentSubmit < 1">
+        <h4 class="mt-2 mb-2" style="text-align: center">Submit Assignment</h4>
+        <form
+          [formGroup]="submitAssignment"
+          (ngSubmit)="subAssignment(submitAssignment)"
+        >
+          <input
+            type="text"
+            [formControl]="submitAssignment.controls['link']"
+            placeholder="Link of Assignment File"
+            class="form-control"
+          />
+          <textarea
+            class="mt-3 form-control"
+            [formControl]="submitAssignment.controls['desc']"
+            placeholder="Assignment Description"
+          ></textarea>
+          <button
+            class="btn btn-success btn-block mt-4"
+            [disabled]="!submitAssignment.valid"
+          >
+            Submit Assignment
+          </button>
+          <div
+            class="alert alert-success mt-2"
+            *ngIf="submitMessage.length > 0"
+          >
+            {{ submitMessage }}
+          </div>
+        </form>
+      </div>
+      <div class="col-md-12 mb-5" *ngIf="assignmentSubmit > 0">
+        <div
+          class="Assign container-fluid"
+          *ngFor="let student of submit"
+          [class]="student"
+        >
+          <h4 style="text-align: center" class="mt-4 mb-3">
+            Assingment Submitted
+          </h4>
+          <p>Link</p>
+          <a href="{{ student.data().name }}" target="_blank">{{
+            student.data().name
+          }}</a>
+          <hr />
+          <p>{{ student.data().desc }}</p>
+          <hr />
+          <p style="font-size: 12px">
+            Submitted On:
+            {{
+              student.data().createDate.toDate() | date: "MMM dd, yyyy (h:mm a)"
+            }}
+          </p>
+          <button
+            class="btn btn-block btn-danger"
+            (click)="removeAssign(student.id)"
+          >
+            Remove Assignment
+          </button>
+          <div
+            class="alert alert-success mt-2 mb-5"
+            *ngIf="deleteAssignment.length > 0"
+          >
+            {{ deleteAssignment }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container mt-5" *ngIf="currentUser == 'teacher'">
+    <!-- Assignment Details -->
+    <h4 style="text-align: center" class="mb-3">
+      Submitted By ( {{ submitlength }} )
+    </h4>
+    <div *ngFor="let st of submitby" [class]="st" class="Assign">
+      <h4>Student: {{ st.data().user }}</h4>
+      <p>
+        <b>Link: </b
+        ><a href="{{ st.data().name }}" target="_blank">{{ st.data().name }}</a>
+      </p>
+      <p>Description: <br />{{ st.data().desc }}</p>
+      <p style="font-size: 12px">
+        Submitted On:
+        {{ st.data().createDate.toDate() | date: "MMM dd, yyyy (h:mm a)" }}
+      </p>
+    </div>
+
+    <!-- Assignment Details Ends-->
+  </div>
+</div>

@@ -1,0 +1,50 @@
+div {
+  font-family: "poppins", sans-serif;
+}
+.container {
+  text-align: center;
+}
+.container h1 {
+  font-size: 60px;
+  margin-top: 25px;
+}
+.img-circle {
+  width: 80%;
+}
+.img_text {
+  font-size: 20px;
+  margin-top: 20px;
+}
+.form_input {
+  padding: 25px;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+.form_input:focus {
+  color: black;
+  background-color: #f8f8f8;
+}
+.submit_btn {
+  padding: 15px;
+  font-size: 25px;
+}
+@media only screen and (max-width: 800px) {
+  .img-circle {
+    width: 150px;
+    height: auto;
+  }
+  .container h1 {
+    font-size: 30px;
+  }
+  .img_text {
+    font-size: 12px;
+  }
+  .form_input {
+    padding: 15px;
+    font-size: 15px;
+  }
+  .submit_btn {
+    padding: 10px;
+    font-size: 18px;
+  }
+}

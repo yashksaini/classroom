@@ -1,0 +1,37 @@
+<div
+  class="container-fluid class_card mt-4"
+  *ngIf="user && user.uid == classData.owner && classData.type == 'teacher'"
+>
+  <div class="row">
+    <div class="col-5 left_card">
+      <img src="/assets/class_icon.jpg" class="class_img" />
+      <button
+        class="btn btn-primary mt-3 btn-block"
+        routerLink="/edit/{{ classData.cCode }}"
+      >
+        Edit
+      </button>
+    </div>
+    <div class="col-7 right_card align-items-center">
+      <h4>{{ classData.className }}({{ classData.subject }})</h4>
+      <h5>Class Code: {{ classData.cCode }}</h5>
+      <br />
+      <p>
+        <a class="card-link" routerLink="/teacher/{{ classData.cCode }}"
+          >Go To Classroom <i class="fas fa-angle-double-right"></i
+        ></a>
+      </p>
+      <div class="d-flex justify-content-center align-item-center">
+        <!--
+        <button
+          type="button"
+          class="btn btn-danger btn-block card-link"
+          *ngIf="user && user.uid == classData.owner"
+          (click)="delete()"
+        >
+          Delete
+        </button>-->
+      </div>
+    </div>
+  </div>
+</div>

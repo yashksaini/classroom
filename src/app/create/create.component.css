@@ -1,0 +1,28 @@
+.card-title {
+  margin-bottom: 20px;
+}
+.form_input {
+  padding: 25px;
+  font-size: 18px;
+}
+.form_input:focus {
+  color: black;
+  background-color: #f8f8f8;
+}
+.submit_btn {
+  padding: 10px;
+  font-size: 20px;
+}
+div {
+  font-family: "poppins", sans-serif;
+}
+@media only screen and (max-width: 768px) {
+  .form_input {
+    padding: 10px;
+    font-size: 14px;
+  }
+  .submit_btn {
+    padding: 10px;
+    font-size: 18px;
+  }
+}

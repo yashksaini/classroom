@@ -1,0 +1,173 @@
+h1 {
+  text-align: center;
+  font-size: 40px;
+  color: blue;
+}
+p {
+  text-align: center;
+  font-size: 40px;
+  color: black;
+}
+@media only screen and (max-width: 1440px) {
+  h1 {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  h2 {
+    font-size: 30px;
+    line-height: 36px;
+  }
+
+  h3 {
+    font-size: 28px;
+    line-height: 33px;
+  }
+
+  h4 {
+    font-size: 26px;
+    line-height: 30px;
+  }
+
+  h5 {
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  h6 {
+    font-size: 22px;
+    line-height: 26px;
+  }
+
+  p,
+  li,
+  td,
+  a,
+  tr {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  h1 {
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  h2 {
+    font-size: 26px;
+    line-height: 30px;
+  }
+
+  h3 {
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  h4 {
+    font-size: 22px;
+    line-height: 26px;
+  }
+
+  h5 {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  h6 {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  p,
+  li,
+  td,
+  a,
+  tr {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  h1 {
+    font-size: 24px;
+    line-height: 24px;
+  }
+
+  h2 {
+    font-size: 22px;
+    line-height: 23px;
+  }
+
+  h3 {
+    font-size: 20px;
+    line-height: 22px;
+  }
+
+  h4 {
+    font-size: 19px;
+    line-height: 21px;
+  }
+
+  h5 {
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  h6 {
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  p,
+  li,
+  td,
+  a,
+  tr {
+    font-size: 14px;
+    line-height: 16px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  h1 {
+    font-size: 22px;
+    line-height: 18px;
+  }
+
+  h2 {
+    font-size: 20px;
+    line-height: 17px;
+  }
+
+  h3 {
+    font-size: 18px;
+    line-height: 16px;
+  }
+
+  h4 {
+    font-size: 16px;
+    line-height: 15px;
+  }
+
+  h5 {
+    font-size: 14px;
+    line-height: 14px;
+  }
+
+  h6 {
+    font-size: 13px;
+    line-height: 13px;
+  }
+
+  p,
+  li,
+  td,
+  a,
+  tr {
+    font-size: 12px;
+    line-height: 11px;
+  }
+}

@@ -1,0 +1,27 @@
+<div
+  class="container-fluid class_card mt-4"
+  *ngIf="user && user.uid == studentData.owner && studentData.status == 'allow'"
+>
+  <div class="row">
+    <div class="col-5 left_card">
+      <img src="/assets/class_icon.jpg" class="class_img" />
+      <button
+        class="btn btn-primary mt-3 btn-block"
+        routerLink="/edit/{{ studentData.cCode }}"
+      >
+        Edit
+      </button>
+    </div>
+    <div class="col-7 right_card align-items-center">
+      <h4>{{ studentData.subject }}</h4>
+      <h5>{{ studentData.className }}</h5>
+      <br />
+      <p>
+        <a class="card-link" routerLink="/teacher/{{ studentData.cCode }}"
+          >Go To Classroom <i class="fas fa-angle-double-right"></i
+        ></a>
+      </p>
+      <div class="d-flex justify-content-center align-item-center"></div>
+    </div>
+  </div>
+</div>

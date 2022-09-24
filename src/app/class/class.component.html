@@ -1,0 +1,135 @@
+<div class="container mt-2 mb-5">
+  <div class="row mb-5 mt-5">
+    <div class="col-md-6 bg-light">
+      <p>
+        <a
+          class="btn btn-dark btn-block btn_drop mt-2"
+          data-toggle="collapse"
+          href="#collapseExample2"
+          role="button"
+          aria-expanded="false"
+          aria-controls="collapseExample2"
+        >
+          My Joined Classes <i class="fas fa-chevron-down"></i>
+        </a>
+      </p>
+      <div class="collapse" id="collapseExample2">
+        <app-joinclass
+          *ngFor="let stClass of students"
+          [class]="stClass"
+        ></app-joinclass>
+        <h4 class="mt-5 mb-5" style="text-align: center">Join Classes</h4>
+      </div>
+    </div>
+    <div class="col-md-6 bg-light">
+      <p>
+        <a
+          class="btn btn-primary btn-block mt-2 btn_drop"
+          data-toggle="collapse"
+          href="#collapseExample1"
+          role="button"
+          aria-expanded="false"
+          aria-controls="collapseExample1"
+        >
+          My Created Classes <i class="fas fa-chevron-down"></i>
+        </a>
+      </p>
+      <div class="collapse" id="collapseExample1">
+        <app-my-class
+          *ngFor="let class of classes"
+          [class]="class"
+        ></app-my-class>
+        <h4 class="mt-5 mb-5" style="text-align: center">Create Classes</h4>
+      </div>
+    </div>
+  </div>
+  <!--Top Nav Tabs Start -->
+  <nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <a
+        class="nav-link active"
+        id="nav-home-tab"
+        data-toggle="tab"
+        href="#nav-home"
+        role="tab"
+        aria-controls="nav-home"
+        aria-selected="true"
+        >Create/Join</a
+      >
+      <a
+        class="nav-link"
+        id="nav-profile-tab"
+        data-toggle="tab"
+        href="#nav-profile"
+        role="tab"
+        aria-controls="nav-profile"
+        aria-selected="false"
+        >Requests Sent ({{ totalreq }})</a
+      >
+    </div>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+    <div
+      class="tab-pane fade active show"
+      id="nav-home"
+      role="tabpanel"
+      aria-labelledby="nav-home-tab"
+    >
+      <!--- Create Join Tab Starts -->
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <app-create (classCreated)="onClassCreated()"></app-create>
+          </div>
+          <div class="col-md-6">
+            <app-join (studentCreated)="onStudentCreated()"></app-join>
+          </div>
+        </div>
+      </div>
+      <hr style="width: 100%" />
+      <hr style="width: 80%; margin-left: 10%" />
+      <hr style="width: 60%; margin-left: 20%" />
+      <hr style="width: 40%; margin-left: 30%" />
+      <hr style="width: 20%; margin-left: 40%" />
+      <!--- Create Join Tab Ends -->
+    </div>
+    <div
+      class="tab-pane fade"
+      id="nav-profile"
+      role="tabpanel"
+      aria-labelledby="nav-profile-tab"
+    >
+      <!--- Requests Tab Starts -->
+      <h4 style="text-align: center" class="mt-4">Requests Send</h4>
+      <div *ngIf="leaveSuccess.length > 0" class="alert alert-success">
+        {{ leaveSuccess }}
+      </div>
+      <div class="table-responsive">
+        <table class="table table-bordered mt-2 mb-3" style="font-size: 12px">
+          <tr>
+            <th scope="col">Class Code</th>
+            <th scope="col">Teacher</th>
+            <th scope="col">Subject</th>
+            <th scope="col"></th>
+          </tr>
+          <tr *ngFor="let streq of requestSend" [class]="streq">
+            <td>{{ streq.data().cCode }}</td>
+            <td>{{ streq.data().className }}</td>
+            <td>{{ streq.data().subject }}</td>
+            <td>
+              <button
+                class="btn btn-secondary btn-block"
+                (click)="leave(streq.id)"
+              >
+                Exit
+              </button>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <!--- Requests Tab Ends -->
+    </div>
+  </div>
+  <!--Top Nav Tabs Ends-->
+</div>

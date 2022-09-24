@@ -1,0 +1,38 @@
+<div>
+  <h5 style="text-align: center" class="mb-2 mt-2">Join Class</h5>
+  <form [formGroup]="myForm" (ngSubmit)="createStudent(myForm)">
+    <input
+      type="text"
+      class="form-control mt-1 form_input"
+      placeholder="Class Code"
+      [formControl]="myForm.controls['cCode']"
+    />
+
+    <input
+      type="text"
+      class="form-control mt-1 form_input"
+      placeholder="Teacher Name"
+      [formControl]="myForm.controls['className']"
+    />
+    <input
+      type="text"
+      class="form-control mt-1 form_input"
+      placeholder="Subject"
+      [formControl]="myForm.controls['subject']"
+    />
+    <button
+      [disabled]="!myForm.valid"
+      type="submit"
+      class="btn btn-success btn-block mt-2 submit_btn"
+    >
+      Join Class
+    </button>
+  </form>
+
+  <div class="alert alert-success" *ngIf="message.length > 0">
+    {{ message }}
+  </div>
+  <div class="alert alert-danger" *ngIf="errormessage.length > 0">
+    {{ errormessage }}
+  </div>
+</div>

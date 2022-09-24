@@ -1,0 +1,25 @@
+.btn_drop {
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 0px;
+}
+.btn_drop:hover {
+  letter-spacing: 2px;
+  transition: letter-spacing 0.5s;
+}
+.btn_add {
+  width: 120px;
+  height: 80px;
+  box-shadow: 2px 2px 5px grey, -2px -2px 5px lightgray;
+  font-size: 20px;
+  text-align: center;
+  background-color: rgb(104, 119, 255);
+  color: white;
+}
+div {
+  font-family: "poppins", sans-serif;
+}
+.btn_add:hover {
+  letter-spacing: 2px;
+  transition: letter-spacing 0.5s;
+}
